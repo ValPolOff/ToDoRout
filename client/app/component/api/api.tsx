@@ -1,3 +1,4 @@
+"use client"
 import { RootState, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { ITask } from '../types/ITask'
 import { IData } from '../types/IData';

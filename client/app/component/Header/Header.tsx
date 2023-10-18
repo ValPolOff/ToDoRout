@@ -1,4 +1,5 @@
 //import "./Header.module.css"
+"use client"
 import Image from 'next/image'
 import style from './Header.module.css'
 import { getToken, isAuth, removeToken, setToken } from '../store/token'
@@ -25,6 +26,11 @@ export default function Header () {
     }*/
 
     //const route = useRouter()
+
+    /*const [isAurh2,setIsAurh2] = useState<boolean>()
+    useEffect(()=>{
+        setIsAurh2(isAuth() || undefined)
+    },[isAuth()])*/
     return (
         
         <header className={style.header}>

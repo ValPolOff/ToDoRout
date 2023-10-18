@@ -20,6 +20,7 @@ import done2 from '../../../public/done 1.svg'
 import { ITask } from "../types/ITask";
 import { ToastContainer,toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { Slide } from "@mui/material";
 
 
 export default function Panel() {
@@ -58,7 +59,11 @@ export default function Panel() {
         console.log(data?.rows)},100)
       },[data?.rows])
 
+      const [checked, setChecked] = useState(false);
 
+      const handleChange = () => {
+        setChecked((prev) => !prev);
+      };
 
     return (
         <div>
@@ -98,8 +103,10 @@ export default function Panel() {
                         
                         {   isLoading ? 'Loading...': task?.map((text1,index)=>{
                         return (
-                            <>
+                            <>          
+                            
                                 <TaskToDo index={text1.id} text1={text1} setObjTask={setTextTask} objTask = {textTask} />
+                            
                             </>
                         )})
                         }

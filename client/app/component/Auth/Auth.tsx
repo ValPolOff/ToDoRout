@@ -28,17 +28,23 @@ export default function Auth () {
     const clisk = () => {
         if (auth) {
             createUser({email:email,password:password});
-            setTimeout(()=> {if (data){
-            route.push('/app/task')}},500)
+            /*setTimeout(()=> {if (data){
+            route.push('/app/task')}},500)*/
             
 
         } else {
 
             createLogin({email:email,password:password});
-            setTimeout(()=> {if (data2){
-                route.push('/app/task')}},500)
+            /*setTimeout(()=> {if (data2){
+                route.push('/app/task')}},500)**/
         }
     }
+    useEffect(()=>{
+        if(data.data?.token){route.push('/app/task')}
+        if(data2.data?.token){route.push('/app/task')}
+    },[data,data2])
+
+
     console.log(data2)
     useEffect(()=>{
         if (data?.data){
@@ -76,7 +82,9 @@ export default function Auth () {
                 </button>
             
             <div className={s.errorLoginRegistration}>
-                {auth ? data?.error?.data?.message : data2?.error?.data?.message}
+                {//@ts-ignore
+                auth ?  data?.error?.data?.message : data2?.error?.data?.message
+                }
             </div>
             <a  onClick={() => {auth ? setAuth(false): setAuth(true)}}>{auth ? 'Log In': 'Registrarion'}</a>
             <button></button>

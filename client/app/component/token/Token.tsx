@@ -1,3 +1,4 @@
+"use client"
 import { getToken, isAuth, removeToken, setToken } from '../store/token'
 import jwt_decode from'jwt-decode'
 

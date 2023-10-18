@@ -1,3 +1,4 @@
+"use client"
 import React, { ReactNode, useState } from "react";
 import s from './Modal.module.css'
 import Image from "next/image";

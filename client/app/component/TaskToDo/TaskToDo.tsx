@@ -55,7 +55,7 @@ export default function TaskToDo (props:ModalType) {
         
         return (
             <>
-            <div key={props.index}>
+            <div key={props.index} >
                 <div className={s.t}>
                     <div className={s.task}>
                         
@@ -63,13 +63,14 @@ export default function TaskToDo (props:ModalType) {
                             <button onClick={() => {updateTask({id:props.index,completed:!props.text1.completed===true})}}>  
                                 {props.text1.completed===true ? (<Image alt='ok' src={ok} width={25} height={25} />):(<Image alt='ok' src={no} width={25} height={25} />)}
                             </button>
-                            {<div>{props.text1?.text?.length > 7 ? props.text1.text.substring(0,7) + '...': props.text1.text}</div>}
+                            {<div data-tooltip = {props.text1?.text?.length > 7 ? `${props.text1.text}`:''} className={s.textTask}>  {props.text1?.text?.length > 7 ? props.text1.text.substring(0,7) + '...': props.text1.text}</div>}
+                            
                         </div>
 
                         <div className={s.task2}>
                             
                             
-                            {<div >{props.text1.createdAt.slice(0,10) === new Date().getUTCFullYear().toString() + '-'+ (new Date().getUTCMonth()+1).toString() +'-'+ (new Date().getUTCDate().toString() > '9' ? new Date().getUTCDate().toString() : '0' + new Date().getUTCDate().toString()) ? `Today ${props.text1.createdAt.slice(11,19)}`: props.text1.createdAt.slice(0,10)}</div>}
+                            {<div >{props.text1.createdAt.slice(0,10) === new Date().getUTCFullYear().toString() + '-'+ (new Date().getUTCMonth()+1).toString() +'-'+ (new Date().getUTCDate().toString() < '9' ? new Date().getUTCDate().toString() : '0' + new Date().getUTCDate().toString()) ? `Today ${props.text1.createdAt.slice(11,19)}`: props.text1.createdAt.slice(0,10)}</div>}
                             <button onClick={() => { toggle();}}>
                                 <Image alt='settings'  src={settings} width={4} height={4} />
                             </button>

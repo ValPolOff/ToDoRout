@@ -16,9 +16,21 @@
 
     width: 23vw;
     height: 4vh;
-    
-    
+    animation-duration: 1s;
+    animation-name: slidein;
 }
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%;
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
 
 .tt {
     display: flex;
@@ -95,4 +107,36 @@
     align-items: center;
     right: 0;
     top: 0;
+  }
+
+
+  .textTask {
+    position: relative; /* Относительное позиционирование */
+    
+  }
+
+  .textTask::after {
+    content: attr(data-tooltip);
+    opacity: 0;
+    transition: 1s;
+    pointer-events: none;
+    position: absolute; /* Абсолютное позиционирование */
+    top:0%;
+    left:0%;
+    background-color: rgba(207, 174, 239, 0);
+    padding: 2px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .textTask:hover::after {
+    opacity: 1;
+    position: absolute; /* Абсолютное позиционирование */
+    top:0%;
+    left:0%;
+    z-index: 1; /* Отображаем подсказку поверх других элементов */
+    background-color: rgb(207, 174, 239);
+    padding: 2px;
+    border-radius: 5px;
+    text-align: center;
   }

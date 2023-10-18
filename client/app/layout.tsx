@@ -11,7 +11,7 @@ import Auth from './component/Auth/Auth'
 import React, { useState, useEffect } from 'react';
 import { getToken, isAuth } from './component/store/token'
 import SettingsProfile from './component/settingProfile/settingsProfile'
-
+import Uitodo from './component/UI/Uitodo'
 //const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   //console.log(localStorage.getItem('token'))
 
-  const [isOpen, setIsOpen] = useState(false)
+  /*const [isOpen, setIsOpen] = useState(false)
   const [isOpen1, setIsOpen1] = useState(false)
   console.log(isOpen)
   useEffect(()=>{
@@ -35,13 +35,13 @@ export default function RootLayout({
     } else {
       return setIsOpen1(false)
     }},500)
-  },[isOpen])
+  },[isOpen])*/
 
   return (
     <html lang="en">
       <body>
         <Provider store={store}>
-
+          <Uitodo />
           <Header/>
           {children}
           
